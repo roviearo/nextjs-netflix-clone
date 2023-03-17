@@ -2,15 +2,11 @@ import axios from "axios";
 import Input from "@/components/input";
 import { useCallback, useState } from "react";
 import { signIn } from 'next-auth/react';
-import { redirect } from "next/dist/server/api-utils";
-import { useRouter } from "next/router";
 
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 
 const Auth = () => {
-    const router = useRouter();
-
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -26,11 +22,9 @@ const Auth = () => {
             await signIn('credentials', {
                 email,
                 password,
-                redirect: false,
-                callbackUrl: '/'
+                callbackUrl: '/profiles'
             });
 
-            router.push('/');
         } catch (error) {
             console.log(error);
         }
@@ -52,7 +46,7 @@ const Auth = () => {
 
     return (
         <div className="relative h-full w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
-            <div className="bg-black w-full h-full bg-opacity-50">
+            <div className="bg-black w-full h-full lg:bg-opacity-50">
                 <nav className="px-12 py-5">
                     <img src="/images/logo.png" alt="Logo" className="h-12" />
                 </nav>
@@ -91,7 +85,7 @@ const Auth = () => {
                         </button>
                         <div className="flex flex-row items-center gap-4 mt-8 justify-center">
                             <div
-                                onClick={() => signIn('google', { callbackUrl: '/' })}
+                                onClick={() => signIn('google', { callbackUrl: '/profiles' })}
                                 className="
                                     w-10 
                                     h-10 
@@ -108,7 +102,7 @@ const Auth = () => {
                                 <FcGoogle size={30} />
                             </div>
                             <div
-                                onClick={() => signIn('github', { callbackUrl: '/' })}
+                                onClick={() => signIn('github', { callbackUrl: '/profiles' })}
                                 className="
                                     w-10 
                                     h-10 
