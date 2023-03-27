@@ -11,7 +11,7 @@ interface InfoModalProps {
     onClose: any;
 };
 
-const infoModal: React.FC<InfoModalProps> = ({ visible, onClose }) => {
+const InfoModal: React.FC<InfoModalProps> = ({ visible, onClose }) => {
     const [isVisible, setIsVisible] = useState<boolean>(!!visible);
 
     const { movieId } = useInfoModal();
@@ -76,4 +76,4 @@ const infoModal: React.FC<InfoModalProps> = ({ visible, onClose }) => {
     )
 }
 
-export default infoModal;
+export default InfoModal;
