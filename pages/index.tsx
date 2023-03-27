@@ -7,7 +7,7 @@ import MovieList from "@/components/MovieList";
 import useMovieList from "@/hooks/useMovieList";
 import useFavorites from "@/hooks/useFavorites";
 import InfoModal from "@/components/InfoModal";
-import useInfoModal from "@/hooks/useInfoModel";
+import useInfoModal from "@/hooks/useInfoModalStore";
 
 export async function getServerSideProps(context: NextPageContext) {
   const session = await getSession(context);

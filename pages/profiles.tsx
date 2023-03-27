@@ -1,4 +1,5 @@
 import useCurrentUser from "@/hooks/useCurrentUser";
+import Image from "next/image";
 import { NextPageContext } from "next";
 import { getSession } from "next-auth/react";
 import { useRouter } from "next/router";
@@ -46,7 +47,8 @@ const Profiles = () => {
                                     overflow-hidden
                                 "
                             >
-                                <img src="/images/default-blue.png" alt="Profile" />
+                                {/* <img src="/images/default-blue.png" alt="Profile" /> */}
+                                <Image src="/images/default-blue.png" alt="Profile" />
                             </div>
 
                             <div

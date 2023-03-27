@@ -3,8 +3,9 @@ import React from "react";
 import { useRouter } from "next/router";
 import { BsFillPlayFill } from "react-icons/bs"
 import { BiChevronDown } from "react-icons/bi"
+import Image from "next/image";
 import FavoriteButton from "./FavoriteButton";
-import useInfoModal from "@/hooks/useInfoModel";
+import useInfoModal from "@/hooks/useInfoModalStore";
 
 interface MovieCardProps {
     data: Record<string, any>;
@@ -18,7 +19,8 @@ const MovieCard: React.FC<MovieCardProps> = ({
 
     return (
         <div className="group bg-zinc-900 col-span relative h-[12vw]">
-            <img
+
+            <Image
                 className="
                 cursor-pointer
                 object-cover
@@ -32,7 +34,9 @@ const MovieCard: React.FC<MovieCardProps> = ({
                 w-full
                 h-[12vw]
             "
-                src={data.thumbnailUrl} alt="Thumbnail" />
+                src={data.thumbnailUrl} alt="Thumbnail"
+            />
+
             <div
                 className="
                     opacity-0
@@ -51,18 +55,20 @@ const MovieCard: React.FC<MovieCardProps> = ({
                     group-hover:translate-x-[2vw]
                     group-hover:opacity-100
                 ">
-                <img
+
+                <Image
                     className="
-                        cursor-pointer
-                        object-cover
-                        transition
-                        duration
-                        shadow-xl
-                        rounded-t-md
-                        w-full
-                        h-[12vw]
-                    "
-                    src={data.thumbnailUrl} alt="Thumbnail" />
+                    cursor-pointer
+                    object-cover
+                    transition
+                    duration
+                    shadow-xl
+                    rounded-t-md
+                    w-full
+                    h-[12vw]
+                "
+                    src={data.thumbnailUrl} alt="Thumbnail"
+                />
                 <div
                     className="
                             z-10
